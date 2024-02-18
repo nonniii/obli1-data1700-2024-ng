@@ -1,0 +1,61 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bestilling av kinobilletter</title>
+  <script src="index.js"></script>
+</head>
+<body>
+<h1>Bestilling av kinobilletter</h1>
+
+<div>
+  <table>
+    <!-- Her velges det filmer-->
+    <label for="film">Velg film: </label>
+    <select id="film" onchange="select()">
+      <option value="Ant-Man">Ant-Man</option>
+      <option value="Avatar 2">Avatar 2</option>
+      <option value="Black Panther">Black Panther</option>
+    </select>
+    <div id="film-error"></div>
+
+    <!-- Ved hjelp av <tr> tag lages det like store rader-->
+    <tr>
+      <td>Antall</td>
+      <td><input type="number" id="antall" onblur="validerAntall(this.value)"/></td>
+      <td><div id="antall-error"></div></td>
+    </tr>
+    <tr>
+      <td>Fornavn</td>
+      <td><input type="text" id="fornavn" onblur="validerNavn(this.value, 'fornavn-error')"/></td>
+      <td><div id="fornavn-error"></div></td>
+    </tr>
+    <tr>
+      <td>Etternavn</td>
+      <td><input type="text" id="etternavn" onblur="validerNavn(this.value, 'etternavn-error')"/></td>
+      <td><div id="etternavn-error"></div></td>
+    </tr>
+    <tr>
+      <td>Telefonnr</td>
+      <td><input type="text" id="telefonnr" onblur="validerTelefon(this.value)"/></td>
+      <td><div id="telefon-error"></div></td>
+    </tr>
+    <tr>
+      <td>Epost</td>
+      <td><input type="text" id="epost" onblur="validerEpost(this.value)"/></td>
+      <td><div id="epost-error"></div></td>
+    </tr>
+    <tr><td><button onclick="kjopBillett()">Kjøp billett</button></td></tr>
+
+  </table>
+
+  <div>
+    <h2>Alle billetter</h2>
+  </div>
+  <div id="kino"></div>
+
+  <br>
+  <button onclick="slettBillett()">Slett Billett</button>
+</div>
+</body>
+</html>
